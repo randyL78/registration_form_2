@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  background: #cdf;
+}
+
 h2 {
   text-align: center;
   color: #555;
@@ -42,6 +47,7 @@ header {
 
 form {
   padding: .25em .5em;
+  background: #fff;
 }
 
 fieldset {
@@ -70,12 +76,21 @@ input, select, textarea {
   outline: none;
   margin-top: .75em; 
   flex-basis: 100%;
+  transition: background-color .2s ease-in, border-color .2s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+  background-color: #fff;
+  border-color: #346; 
 }
 
 input::placeholder {
-  text-align: right;
   font-style: italic;
-  padding-right: 1em;
+  padding: 0 1em;
+}
+
+input[placeholder=Required]::placeholder {
+  text-align: right;
 }
 
 input[type=checkbox], input[type=radio] {
@@ -111,6 +126,7 @@ input[type=submit] {
   background: #5dc;
   color: #fff;
   font-weight: 700;
+  flex-basis: 100%;
 }
 
 footer {
@@ -120,4 +136,35 @@ footer {
 
 @media (min-width: 768px) {
 
+  form {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  label {
+    flex-basis: 150px;
+  }
+
+  input, select {
+    flex-basis: 75%;
+  }
+
+  #zipcode {
+    flex-basis: 30%;
+  }
+
+  input[type=checkbox], input[type=radio] {
+    flex-basis: 3%;
+    height: 1.5em;
+  }
+  
+  input[type=checkbox] + label, input[type=radio] + label {
+    flex-basis: 95%;
+    margin-left: 2%;
+  }
+
+  label[for=topics] {
+    flex-basis: 100%;
+  }
 }
